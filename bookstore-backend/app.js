@@ -13,12 +13,12 @@ const app = express();
 const PORT = 9000;
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: true,
     methods: 'GET,POST,PUT,DELETE',
     credentials: true
 }));
 
-mongoose.connect('mongodb://127.0.0.1:27017/Bookstore')
+mongoose.connect('mongodb+srv://Dineshbalaji_A:dineshbalaji@cluster0.cwoq1.mongodb.net/Bookstore?retryWrites=true&w=majority&appName=Cluster0')
     .then(() => {
         console.log('Connection to MongoDB established');
     })

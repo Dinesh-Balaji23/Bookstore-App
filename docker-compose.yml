@@ -1,0 +1,17 @@
+services:
+
+  backend:
+    build: ./bookstore-backend
+    container_name: bookstore-backend
+    network_mode: host
+    volumes:
+      - ./bookstore-backend/uploads:/app/uploads
+    restart: always
+
+  frontend:
+    build: ./bookstore-frontend
+    container_name: bookstore-frontend
+    network_mode: host
+    depends_on:
+      - backend
+    restart: always
