@@ -1,9 +1,11 @@
-services:
+version: "3.8"
 
+services:
   backend:
     build: ./bookstore-backend
     container_name: bookstore-backend
-    network_mode: host
+    ports:
+      - "9000:9000"
     volumes:
       - ./bookstore-backend/uploads:/app/uploads
     restart: always
@@ -11,7 +13,8 @@ services:
   frontend:
     build: ./bookstore-frontend
     container_name: bookstore-frontend
-    network_mode: host
+    ports:
+      - "3000:3000"
     depends_on:
       - backend
     restart: always

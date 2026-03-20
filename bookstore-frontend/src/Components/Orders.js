@@ -16,7 +16,7 @@ const OrdersPage = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get(`http://localhost:9000/orders/${username}`);
+        const response = await axios.get(`http://192.168.153.128:9000/orders/${username}`);
         setOrders(response.data);
       } catch (err) {
         setError(err.response?.data?.message || "Failed to fetch orders");
@@ -66,7 +66,7 @@ const OrdersPage = () => {
               {/* Image */}
               <div style={{ width: "120px", marginRight: "20px" }}>
                 <img
-                  src={`http://localhost:9000/${order.bookImage}`}
+                  src={`http://192.168.153.128:9000/${order.bookImage}`}
                   alt={order.bookTitle}
                   style={{
                     width: "100%",

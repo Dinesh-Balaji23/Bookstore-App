@@ -12,7 +12,7 @@ const SellerOrders = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:9000/sellerorders/${username}`
+          `http://192.168.153.128:9000/sellerorders/${username}`
         );
         setOrders(response.data);
       } catch (err) {
@@ -82,7 +82,7 @@ const SellerOrders = () => {
               {/* Image */}
               <div style={{ width: "120px", marginRight: "20px" }}>
                 <img
-                  src={`http://localhost:9000/${order.bookImage}`}
+                  src={`http://192.168.153.128:9000/${order.bookImage}`}
                   alt={order.bookTitle}
                   style={{
                     width: "100%",

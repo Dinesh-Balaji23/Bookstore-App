@@ -15,7 +15,7 @@ const SignupPage = () => {
 
     try {
       const newUser = { name, email, password };
-      const response = await axios.post('http://localhost:9000/signup', newUser);
+      const response = await axios.post('http://192.168.153.128:9000/signup', newUser);
       
       if (response.status === 201) {
         alert('User created successfully!');

@@ -23,7 +23,7 @@ const AdminHome = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:9000/adminhome/${username}`);
+        const response = await fetch(`http://192.168.153.128:9000/adminhome/${username}`);
         if (!response.ok) {
           throw new Error("Failed to fetch admin data");
         }

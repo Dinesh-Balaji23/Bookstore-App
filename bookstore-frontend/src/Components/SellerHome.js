@@ -21,7 +21,7 @@ const SellerHome = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:9000/sellerhome/${username}`);
+        const response = await fetch(`http://192.168.153.128:9000/sellerhome/${username}`);
         if (!response.ok) {
           throw new Error("Failed to fetch seller data");
         }

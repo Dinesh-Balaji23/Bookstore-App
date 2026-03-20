@@ -10,7 +10,7 @@ const SellerProducts = () => {
     const fetchProducts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:9000/myproducts/${username}`
+          `http://192.168.153.128:9000/myproducts/${username}`
         );
         if (!response.ok) {
           throw new Error(`Error: ${response.statusText}`);
@@ -27,7 +27,7 @@ const SellerProducts = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:9000/myproducts/${id}`, {
+      const response = await fetch(`http://192.168.153.128:9000/myproducts/${id}`, {
         method: "DELETE",
       });
       if (!response.ok) {
@@ -114,7 +114,7 @@ const SellerProducts = () => {
                   </button>
                 </div>
                 <img
-                  src={`http://localhost:9000/${product.image}`}
+                  src={`http://192.168.153.128:9000/${product.image}`}
                   alt={product.title}
                   className="card-img-top rounded-3"
                   style={{ width: '100%', height: '300px', objectFit: 'contain', maxHeight: '300px' }}

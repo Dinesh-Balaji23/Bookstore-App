@@ -10,13 +10,13 @@ const BookStore = () => {
   useEffect(() => {
     // Fetch books
     axios
-      .get('http://localhost:9000/store')
+      .get('http://192.168.153.128:9000/store')
       .then(response => setBooks(response.data))
       .catch(error => console.log(error));
 
     // Fetch wishlist for the user
     axios
-      .get(`http://localhost:9000/store/${username}`)
+      .get(`http://192.168.153.128:9000/store/${username}`)
       .then(response => {
         const wishlistData = response.data.books.map(book => book._id);
         setWishlist(wishlistData);
@@ -26,7 +26,7 @@ const BookStore = () => {
 
   const handleAddToWishlist = bookId => {
     axios
-      .post('http://localhost:9000/store/add', { username, bookId })
+      .post('http://192.168.153.128:9000/store/add', { username, bookId })
       .then(response => {
         const updatedWishlist = response.data.books.map(book => book._id);
         setWishlist(updatedWishlist);
@@ -36,7 +36,7 @@ const BookStore = () => {
 
   const handleRemoveFromWishlist = bookId => {
     axios
-      .post('http://localhost:9000/store/remove', { username, bookId })
+      .post('http://192.168.153.128:9000/store/remove', { username, bookId })
       .then(response => {
         const updatedWishlist = response.data.books.map(book => book._id);
         setWishlist(updatedWishlist);
@@ -88,7 +88,7 @@ const BookStore = () => {
             <div key={book._id} className="col-md-4 mb-4">
               <div className="card shadow-lg border border-light rounded-3 h-100 overflow-hidden">
                 <img
-                  src={`http://localhost:9000/${book.image}`}
+                  src={`http://192.168.153.128:9000/${book.image}`}
                   alt={book.title}
                   className="card-img-top rounded-3"
                   style={{ width: '100%', height: '300px', objectFit: 'contain', maxHeight: '300px' }}

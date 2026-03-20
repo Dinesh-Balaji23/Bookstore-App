@@ -11,7 +11,7 @@ const BookView = () => {
     useEffect(() => {
         const fetchBook = async () => {
             try {
-                const response = await axios.get(`http://localhost:9000/view/${id}`);
+                const response = await axios.get(`http://192.168.153.128:9000/view/${id}`);
                 setBook(response.data);
             } catch (error) {
                 console.error('Error fetching book details:', error);
@@ -69,7 +69,7 @@ const BookView = () => {
                 <div className="text-center mb-4">
                     {/* Image Section */}
                     <img
-                        src={`http://localhost:9000/${book.image}`}
+                        src={`http://192.168.153.128:9000/${book.image}`}
                         alt={book.title}
                         className="img-fluid shadow-sm mb-2"
                         style={{ maxHeight: '400px', objectFit: 'cover' }}

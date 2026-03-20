@@ -11,7 +11,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const userCredentials = { email, password };
-      const response = await axios.post('http://localhost:9000/loginadmin', userCredentials);
+      const response = await axios.post('http://192.168.153.128:9000/loginadmin', userCredentials);
 
       if (response.status === 200) {
         alert('Login successful!');

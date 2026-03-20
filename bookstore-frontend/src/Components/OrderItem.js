@@ -16,7 +16,7 @@ const OrderItem = () => {
   useEffect(() => {
     const fetchBookDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:9000/view/${id}`);
+        const response = await axios.get(`http://192.168.153.128:9000/view/${id}`);
         setBook(response.data);
       } catch (error) {
         console.error('Error fetching book details:', error.message);
@@ -45,7 +45,7 @@ const OrderItem = () => {
         pincode: formData.pincode,
         state: formData.state,
       };
-      await axios.post(`http://localhost:9000/orderitem/${id}/${username}`, orderData);
+      await axios.post(`http://192.168.153.128:9000/orderitem/${id}/${username}`, orderData);
       alert('Ordered Successfully!')
       navigate(`/orders/${username}`);
     } catch (error) {
@@ -128,7 +128,7 @@ const OrderItem = () => {
           <div className="d-flex align-items-center justify-content-end mb-4">
             <div className="text-end">
               <img
-                src={`http://localhost:9000/${book.image}`}
+                src={`http://192.168.153.128:9000/${book.image}`}
                 alt={book.title}
                 style={{
                   width: '60px',

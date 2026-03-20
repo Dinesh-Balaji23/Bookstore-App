@@ -11,7 +11,7 @@ const SellerTable = () => {
   useEffect(() => {
     const fetchSellers = async () => {
       try {
-        const response = await axios.get("http://localhost:9000/sellers");
+        const response = await axios.get("http://192.168.153.128:9000/sellers");
         setSellers(response.data);
       } catch (error) {
         console.error("Error fetching sellers:", error);
@@ -23,7 +23,7 @@ const SellerTable = () => {
 
   const handleViewBooks = async (sellerName) => {
     try {
-      const response = await axios.get(`http://localhost:9000/myproducts/${sellerName}`);
+      const response = await axios.get(`http://192.168.153.128:9000/myproducts/${sellerName}`);
       setSelectedSellerBooks(response.data);
       setShowModal(true);
     } catch (error) {
@@ -33,7 +33,7 @@ const SellerTable = () => {
 
   const handleDeleteSeller = async (id) => {
     try {
-      await axios.delete(`http://localhost:9000/sellers/delete/${id}`);
+      await axios.delete(`http://192.168.153.128:9000/sellers/delete/${id}`);
       setSellers((prevSellers) => prevSellers.filter((seller) => seller._id !== id));
     } catch (error) {
       console.error("Error deleting seller:", error);
@@ -42,7 +42,7 @@ const SellerTable = () => {
 
   const handleDeleteBook = async (id) => {
     try {
-      await axios.delete(`http://localhost:9000/myproducts/${id}`);
+      await axios.delete(`http://192.168.153.128:9000/myproducts/${id}`);
       setSelectedSellerBooks((prevBooks) =>
         prevBooks.filter((book) => book._id !== id)
       );
@@ -172,7 +172,7 @@ const SellerTable = () => {
                       <div className="d-flex align-items-center">
                         <div style={{ width: "120px", marginRight: "20px" }}>
                           <img
-                            src={`http://localhost:9000/${book.image}`}
+                            src={`http://192.168.153.128:9000/${book.image}`}
                             alt={book.title}
                             style={{
                               width: "100%",

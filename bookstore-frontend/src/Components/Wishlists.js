@@ -8,7 +8,7 @@ const Wishlists = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:9000/store/${username}`) // Fetch user's wishlist
+      .get(`http://192.168.153.128:9000/store/${username}`) // Fetch user's wishlist
       .then((response) => {
         if (response.data && response.data.books) {
           setWishlist(response.data.books);
@@ -21,7 +21,7 @@ const Wishlists = () => {
 
   const handleRemoveFromWishlist = (bookId) => {
     axios
-      .post('http://localhost:9000/store/remove', {
+      .post('http://192.168.153.128:9000/store/remove', {
         username,
         bookId,
       })
@@ -84,7 +84,7 @@ const Wishlists = () => {
               <div key={book._id || index} className="col-md-4 mb-4">
                 <div className="card shadow-lg border border-light rounded-3 h-100 overflow-hidden">
                   <img
-                    src={`http://localhost:9000/${book.image}`}
+                    src={`http://192.168.153.128:9000/${book.image}`}
                     alt={book.title}
                     className="card-img-top rounded-3"
                     style={{

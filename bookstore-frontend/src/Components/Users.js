@@ -11,7 +11,7 @@ const UserTable = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:9000/users");
+        const response = await axios.get("http://192.168.153.128:9000/users");
         setUsers(response.data);
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -23,7 +23,7 @@ const UserTable = () => {
 
   const handleViewOrders = async (userName) => {
     try {
-      const response = await axios.get(`http://localhost:9000/orders/${userName}`);
+      const response = await axios.get(`http://192.168.153.128:9000/orders/${userName}`);
       setSelectedUserOrders(response.data);
       setShowModal(true);
     } catch (error) {
@@ -33,7 +33,7 @@ const UserTable = () => {
 
   const handleDeleteUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:9000/users/delete/${id}`);
+      await axios.delete(`http://192.168.153.128:9000/users/delete/${id}`);
       setUsers((prevUsers) => prevUsers.filter((user) => user._id !== id));
     } catch (error) {
       console.error("Error deleting user:", error);
@@ -42,7 +42,7 @@ const UserTable = () => {
 
   const handleDeleteOrder = async (id) => {
     try {
-      await axios.delete(`http://localhost:9000/orders/${id}`);
+      await axios.delete(`http://192.168.153.128:9000/orders/${id}`);
       setSelectedUserOrders((prevOrders) =>
         prevOrders.filter((order) => order._id !== id)
       );
@@ -171,7 +171,7 @@ const UserTable = () => {
                       <div className="d-flex align-items-center">
                         <div style={{ width: "120px", marginRight: "20px" }}>
                           <img
-                            src={`http://localhost:9000/${order.bookImage}`}
+                            src={`http://192.168.153.128:9000/${order.bookImage}`}
                             alt={order.bookTitle}
                             style={{
                               width: "100%",
