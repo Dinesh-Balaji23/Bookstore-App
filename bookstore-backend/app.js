@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const client = require('prom-client');
 
 const userRouter = require('./routes/userRoutes');
 const adminRouter = require('./routes/adminRoutes');
@@ -35,6 +36,25 @@ app.use(sellerRouter);
 app.use(bookRouter);
 app.use(orderRouter);
 app.use('/store', wishlistRouter);
+
+const collectDefaultMetrics = client.collectDefaultMetrics;
+collectDefaultMetrics();
+
+const httpRequestCounter = new client.Counter({
+  name: 'http_requests_total',
+  help: 'Total number of requests',
+});
+
+app.use((req, res, next) => {
+  httpRequestCounter.inc();
+  next();
+});
+
+// metrics endpoint
+app.get('/metrics', async (req, res) => {
+  res.set('Content-Type', client.register.contentType);
+  res.end(await client.register.metrics());
+});
 
 // Start the server
 app.listen(PORT, () => {
