@@ -104,7 +104,7 @@ function AddBook() {
 
       <div className="container d-flex justify-content-center align-items-center">
         <div className="card p-4 shadow mt-5" style={{ maxWidth: "500px", backgroundColor: "#f8f9fa" }}>
-          <h4 className="mb-4 text-center">Add Book</h4>
+          <h4 className="mb-4 text-center">Add a New Book</h4>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="sellerName" className="form-label">Seller Name</label>
